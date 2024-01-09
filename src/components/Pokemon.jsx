@@ -6,10 +6,6 @@ import GenericForm from '../Forms/GenericForm';
 import useGetResource from '../customHooks/useGetResource';
 import PokemonCard from './PokemonCard';
 
-// divyansh@dezyit.com
-// prasad@dezyit.com
-// haris@dezyit.com
-
 const Pokemon = () => {
 
     // state varibales start...
