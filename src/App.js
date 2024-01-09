@@ -3,24 +3,17 @@ import axios from 'axios';
 
 import useGetResource from './customHooks/useGetResource';
 import Inventory from './components/Inventory';
-import logo from './logo.svg';
+import { API } from './API/api.config';
 import './App.css';
+import GenericForm from './Forms/GenericForm';
+import PokemonForm from './components/Pokemon';
 
 function App() {
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await axios.post('http://localhost:8080/grocery/single', {
-  //       name: 'grocery1'
-  //     });
-  //     console.log('response', res);
-  //   })();
-  // }, []);
-
-
   return (
     <div className="App">
-      <Inventory />
+      <PokemonForm />
+      {/* <Inventory /> */}
     </div>
   );
 }

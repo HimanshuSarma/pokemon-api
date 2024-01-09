@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const useGetResource = (pokemon) => {
 
-const useGetResource = async (endpoint, setGroceries) => {
+    const [resource, setResource] = useState();
+
 
     useEffect(() => {
-        (async () => {
-            const res = await axios.get(`http://localhost:8080/${endpoint}`);
-            if (res?.status === 200) {
-                setGroceries(res?.data?.payload);
-            }
-        })();
-    }, []);
+        if (pokemon) {
+            (async () => {
+                try {
+                    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+                    if (res?.status === 200) {
+                        setResource(res?.data);
+                    }
+                } catch (err) {
+                    alert(`${err?.message || `Some error occured`}`)
+                    setResource()
+                }
+                
+            })();
+        }
+        
+    }, [pokemon]);
 
-    return {};
+    console.log(resource, 'resource')
+
+    return {
+        resource
+    };
 }
 
 export default useGetResource;
