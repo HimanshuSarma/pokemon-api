@@ -6,6 +6,8 @@ import GenericForm from '../Forms/GenericForm';
 import useGetResource from '../customHooks/useGetResource';
 import PokemonCard from './PokemonCard';
 
+import { API } from '../API/api.config';
+
 const Pokemon = () => {
 
     // state varibales start...
@@ -29,7 +31,7 @@ const Pokemon = () => {
     // state varibales start...
 
     // custom hooks...
-    const { resource } = useGetResource(debounceResourceVal);
+    const { resource } = useGetResource(API.thirdPartyUrls.pokemonUrl, debounceResourceVal);
     // custom hooks...
 
     // handlers...

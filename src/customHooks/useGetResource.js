@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useGetResource = (pokemon) => {
+import { API } from '../API/api.config';
+
+const useGetResource = (baseUrl, pokemon) => {
 
     const [resource, setResource] = useState();
 
@@ -10,7 +12,7 @@ const useGetResource = (pokemon) => {
         if (pokemon) {
             (async () => {
                 try {
-                    const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+                    const res = await axios.get(`${baseUrl || API.hostUrl}/${pokemon}`);
                     if (res?.status === 200) {
                         setResource(res?.data);
                     }
